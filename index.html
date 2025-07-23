@@ -1,0 +1,2453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>K-FOOD Catalog</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Aptos', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      width: 21cm;
+      min-height: 29.7cm;
+      margin: 1cm auto;
+      background-color: white;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      padding: 1cm;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      page-break-after: always;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 1cm;
+    }
+
+    .toc ul {
+      font-size: 16px;
+      line-height: 2em;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+      color: #007acc;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .product-title {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .product-row {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .product-image {
+      width: 300px;
+      height: 300px;
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .product-description {
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .how-to-eat,
+    .product-details {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .how-to-eat h3,
+    .product-details h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-details table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .product-details td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+      width: 25%;
+    }
+
+    .product-details tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .extra-images {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .extra-images figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 1rem 1rem 1rem;
+    }
+
+    .extra-images figcaption {
+      margin-top: 0.5rem;
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+    }
+
+    .back-to-toc {
+      align-self: flex-end;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: 2rem;
+    }
+
+    .back-to-toc:hover {
+      background-color: #005fa3;
+    }
+
+    .page-number {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    /* 모바일 반응형 */
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+
+      .product-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+
+      .product-description {
+        width: 100%;
+        text-align: left;
+        margin-top: 1rem;
+      }
+
+      .extra-images {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .extra-images img {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 1rem;
+      }
+
+      .back-to-toc {
+        align-self: center;
+        margin-top: 2rem;
+        padding: 0.5rem 1rem;
+        font-size: 14px;
+        position: static;
+      }
+
+      .product-details table td {
+        font-size: 13px;
+      }
+    }
+
+    /* 인쇄 최적화 */
+    @media print {
+      body {
+        background: none;
+        margin: 0;
+      }
+
+      .container {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        min-height: auto;
+        padding: 1cm;
+        page-break-after: always;
+      }
+
+      .back-to-toc {
+        display: none;
+      }
+
+      .extra-images img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .product-row {
+        flex-direction: row !important;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- 첫번째 페이지 -->
+	<div class="container">
+  <div class="title"><h2>2025 ECRM </h2> <h3>The Snack, Summer Session</h3>
+	  <h4>July 21 - July 23, 2025</h4></div>
+  <div class="">
+
+    <figure>
+       <img src="images/USflag.png" alt="crunch" width="300" >
+	<img src="images/flag.jpg" alt="crunch" width="300" >
+       </figure>
+
+  </div>
+</div>
+<!-- 목차 페이지 -->
+<div class="container" id="toc">
+  <div class="title">K-FOOD List</div>
+  <div class="toc">
+    <ul>
+      <li><strong>Ambient Products</strong></li>
+      <li><a href="#Crunch">- Choco Crunch: Citron, Apple mango, Loquat</a></li>
+      <li><a href="#JalJal">- Jal-Jal Rice Chips: Stir-fried Konjac, Anchovies, Five grains, Brown rice, Bean & Squid </a></li>
+      <li><a href="#DalChip">- DalChip: Choco sand, Strawberry sand</a></li>
+      <li><a href="#Kimchips">- Kimchips: Original, Spicy</a></li>
+      <li><a href="#Bugak">- Bugak: Gim, Curry Gim, Kelp</a></li> 
+	    <br>
+      <li><a href="#Kombucha">- Yuja Kombucha with Bilberry</a></li>
+      <li><a href="#Cocogurt">- Cocogurt</a></li>
+      <li><a href="#oat">- Oat Porridge Powder</a></li>
+	     <br>
+      <li><a href="#CleopatraSeaweed">- Cleopatra Salt Seaweed</a></li>
+      <li><a href="#Siktak">- Siktak Seaweed</a></li>
+	     <br>
+      <li><a href="#Pokpoong">- Pokpoong Tteokbokki</a></li>
+      <li><a href="#Shrimp">- Hot Spicy Shrimp Stir-Fried Noodles: Original, Carbonara, Cheese</a></li>
+	     <br>
+      <li><a href="#Cleopatrasalt">- Cleopatra salt</a></li>
+      <li><a href="#KimchiSaladMix">- Kimchi Salad Mix</a></li>
+      <li><a href="#RedBang">- Red Bang</a></li>
+      <li><a href="#AndBap">- Color Food And Rice: Red, Yellow, Green, Black</a></li>
+      <li><a href="#TokTok">- Tok-Tok Misik Seaweed Flakes</a></li>
+ <br>
+      <li><strong>Frozen Products</strong></li>
+      <li><a href="#CornDog">- Mozzarella Corn Dog: Original, Cajun Potato</a></li>
+      <li><a href="#Shapedbun">- Shaped bun: Flower, Fish, Manju</a></li>
+      <li><a href="#ChivePancake">- Topokki & Chive Pancake</a></li>
+      <li><a href="#KPancake">- K-Pancake: Kimchi, Potato</a></li>
+      <li><a href="#Porridge">- Porridge: Flounder, Spicy flounder, Abalone</a></li>
+      <li><a href="#Kimbap">- Samll Kimbap: Vegetable, Burdok, Tteokbokki</a></li>
+      <li><a href="#Yubu">- Yubu sushi: Tuna mayo, Burdok, Stir-fried kimchi </a></li>
+    </ul>
+
+  </div>
+</div>
+<!-- About K-Food 페이지 -->
+<div class="container" id="">
+  <div class="content">
+
+    <div class="product-title">Summary of K-food</div>
+
+    <div class="product-row">
+	    <figure>
+       <img src="images/kdh.png" alt="crunch" width="300" >
+        <figcaption>K-food from 'K-pop Demon Hunters'</figcaption></figure>
+      <div class="product-description">
+	 
+
+<p>🔥 
+📈 K-Food Export Boom  <br>
+- 2025 projection : Exports expected to reach $14 billion up from $13.03 billion in 2024 <br>
+- H1 performance : A record-setting $6.67 billion exported in the first half of 2025, up 7.1% YoY. <br>
+- Processed foods lead : With $4.45 billion in exports, showing a 10.3% YoY increase.</p>
+
+<p>
+🔥 Buldakmyeon: A K-Spicy Icon Goes Global  <br>
+- Global vitality: The “Fire Noodle Challenge” exploded on YouTube and TikTok, cementing Buldakmyeon as a symbol of bold K-flavors. <br> 
+- Creative fusion : Sweet pairings like corn cheese, eggs, and mozzarella balance the heat, inspiring countless recipe variations.</p>
+</div>
+<div>
+<p>
+🍲 Tteokbokki: From Street Snack to Cultural Export  <br>
+- Star power : BTS's Jimin boosted global interest with viral mukbangs, driving demand in the U.S. and beyond.  <br>
+- Global franchise success : Brands like Ddukki Tteokbokki have expanded with over 70 international stores across Southeast Asia and the Middle East.  <br>
+- Cultural contentization : Tteokbokki transcends food—frequently featured in Korean dramas and films, it’s now consumed as part of K-content.</p>
+
+<p>
+🍘 Korean Rice Crackers: Where Health Meets Tradition  <br>
+- Wellness-aligned ; Gluten-free and low-calorie options cater to vegan and keto lifestyles.  <br>
+- Bold flavor innovations : Korean ingredients like kimchi seasoning and gochujang highlight the uniqueness of K-food.</p>
+
+<p>
+🧂 Kimchi Seasoning: Versatile and Recognizable  <br>
+- Culinary adaptability : Gains popularity as a seasoning for global favorites like pizza, pasta, and grilled meats.  <br>
+- K-flavor enhancer : Introduces Korean spice profiles to a broad range of dishes.</p>
+
+<p>
+🥣 Vegan Yogurt: A Conscious Choice <br> 
+- Eco appeal : Matches the MZ generation’s values around sustainability and ethical consumption. <br> 
+- Health-forward : Plant-based and probiotic-rich, aligning with growing global interest in wellness.
+  </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- Choco Crunch: Citron, Apple mango, Loquat 제품 페이지 -->
+<div class="container" id="Crunch">
+  <div class="content">
+
+    <div class="product-title">Choco Crunch: <br> Citron, Apple mango and Loquat</div>
+
+    <div class="product-row">
+       <img src="images/ChocoCrunch1.jpg" alt="crunch" width="300" >
+
+      <div class="product-description">
+	 Choco crunch is rice pops coated with white chocolate snack. Chocolate gives soft texture and sweet flavor, and rice pops gives crunch texture and savory flavor. There made with Korean rice and has 3 flavors; Citron, Apple mango and Loquat.   
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+       - Eat with a cup of tea or coffee or glass of milk. 
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+      <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.21 oz per piece <br> 4.23 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>20 pieces per pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>24 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>24 cartons </td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/ChocoCrunch2.jpg" alt="Citron" width="200"/>
+        <figcaption>Citron</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ChocoCrunch3.jpg" alt="Apple mango" width="200" />
+        <figcaption>Apple mango</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ChocoCrunch4.jpg" alt="Loquat" width="200" />
+        <figcaption>Loquat</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ChocoCrunch5.jpg" alt="popup" width="200" />
+        <figcaption>Pop-up store</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+<!-- Jal-Jal Rice Chips 제품 페이지 -->
+<div class="container" id="JalJal">
+  <div class="content">
+
+    <div class="product-title">Jal-Jal Rice Chips:<br>Stir-fried Konjac, Anchovies, Five grains, Brown rice, Bean & Squid</div>
+
+    <div class="product-row">
+       <img src="images/JalJalRiceChips1.png" width="400" >
+
+      <div class="product-description">
+	Jal means well in Korean. Jal-Jal is coming from ‘eat Well and live Well’
+	<p>Jal-Jal Rice Chips are rice crackers made from 100% pure grains such as brown rice, white rice, barley, black beans, and black rice. Nutrient-rich Jal-Jal Rice Chips 
+		that are mechanically compressed at <strong>482 ℉ high pressure and not fried in oil. </strong></p>
+</div>
+<div>
+	<strong>Stir-fried Konjac:</strong> Enjoy a rich and light taste without worrying about calories. <br>
+	<strong>Anchovies:</strong> The first in Korea! A sweet and salty charm with a fantastic harmony of domestic anchovies and coconut. <br>
+	<strong>Brown rice:</strong> Pure domestic 99.79% brown rice! Rich and clean taste. <br>
+	<strong>Five grains:</strong> A nutritious and light five-grain flavor made with five types of grains; brown rice, white rice, barley, black rice, black beans.  <br>
+	<strong>Bean & Squid:</strong> The rich flavor of squid and soybean powder with an extremely strong savory taste. 
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	- A simple and crunchy 4 o'clock snacks. <br>
+	- Enjoy it in various ways with ice cream, yogurt, jam, honey, spread etc.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>6.35 oz per pouch</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pouch</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>14 pouches</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>63 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/JalJalRiceChips2.jpg" width="130"/>
+        <figcaption>Stir-fried Konjac</figcaption>
+      </figure>
+      <figure>
+        <img src="images/JalJalRiceChips3.jpg" alt="Anchovies" width="130" />
+        <figcaption>Anchovies</figcaption>
+      </figure>
+      <figure>
+        <img src="images/JalJalRiceChips4.jpg" alt="Five grains" width="130" />
+        <figcaption>Five grains</figcaption>
+      </figure>
+      <figure>
+        <img src="images/JalJalRiceChips5.jpg" alt="Brown rice" width="130" />
+        <figcaption>Brown rice</figcaption>
+      </figure>
+      <figure>
+        <img src="images/JalJalRiceChips6.jpg" alt="Bean & Squid" width="130" />
+        <figcaption>Bean & Squid</figcaption>
+      </figure>
+      <figure>
+        <img src="images/JalJalRiceChips7.jpg" alt="Costco" width="300" />
+        <figcaption>Costco, South Korea</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- DalChip 제품 페이지 -->
+<div class="container" id="DalChip">
+  <div class="content">
+
+    <div class="product-title">DalChip: <br>Choco sand, Strawberry sand</div>
+
+    <div class="product-row">
+       <img src="images/DalChip1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+        DalChip Choco Sand is a delightful snack made by layering sweet chocolate between two crispy rice chips made from locally grown Korean organic rice.
+	<p>DalChip Strawberry Sand is a newly launched rice snack that offers a bright, fruity twist on the original DalChip Choco Sand. </p>
+	<p>Made with organic Korean rice and a strawberry-flavored cocoa compound, this product highlights a perfect balance of sweetness and crunch. </p>
+
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+        - Eat with ice cream or a glass of milk. <br>
+	- Take it for lunch dessert or 4 o’clock snacks.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.42 oz per piece <br> 1.69 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>4 pieces per pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>40 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>64 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC22000</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/DalChip2.jpg" alt="Choco sand" width="200" />
+        <figcaption>Choco sand</figcaption>
+      </figure>
+      <figure>
+        <img src="images/DalChip3.jpg" alt="Strawberry sand" width="200" />
+        <figcaption>Strawberry sand</figcaption>
+      </figure>
+      <figure>
+        <img src="images/DalChip4.gif" alt="Choco sand" width="300" />
+        <figcaption>Choco sand</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Kimchips 제품 페이지 -->
+<div class="container" id="Kimchips">
+  <div class="content">
+
+    <div class="product-title">Kimchips: <br> Original, Spicy</div>
+
+    <div class="product-row">
+       <img src="images/Kimchips1.png" alt="kimchips" width="300" >
+
+      <div class="product-description">
+        <p>It looks tortilla chips but it is totally different. </p>
+	This Kimchips means kimchi and chips which is crispy kimchi flavor chips. It doesn’t just imitate kimchi flavor, 
+	      using grinded whole kimchi to make full of flavor and nutrients. It made with rice powder that is gluten-free chips and 23% of fiber. Kimchips has 2 flavors; Original and Spicy.
+	<p>Experience the taste of new Korean food infused with the taste of nature.</p>
+
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	- With Cheese sauce, mayonnaise or any kinds of dipping sauce. <br>
+	- Make it into nachos. It is gluten-free nachos! <br>
+	- Finger food for party with beer or red wine. 
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>1.41 oz per pouch</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pouch</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>24 pouches</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>48 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC 22000</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Kimchips5.png" alt="Kimchips" width="200"  />
+        <figcaption>Original</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Kimchips6.png" alt="Kimchips" width="200"  />
+        <figcaption>Spicy</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Kimchips2.jpg" alt="Kimchips" width="280"  />
+        <figcaption>Kimchips</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Kimchips4.jpg" alt="Serving Suggestion" width="200"  />
+        <figcaption>Selling in Costco, South Korea</figcaption>
+      </figure>
+
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+<!-- Bugak 제품 페이지 -->
+<div class="container" id="Bugak">
+  <div class="content">
+
+    <div class="product-title">Bugak: <br> Gim, Curry Gim, Kelp</div>
+
+    <div class="product-row">
+       <img src="images/Bugak1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	<p>Bugak is a luxurious snack and is considered a representative handmade snack of Korean cuisine. Making Bugak is time and labor consuming; brushed with glutinous rice paste, dried thoroughly and then fried. It has puffy crunch texture and 3 flavors; gim, curry 	gim and kelp. Gim is known as seaweed Gim bugak is bugak made with gim which known as seaweed, Curry Gim Bugak is curry seasoning bugak and Kelp bugak is bugak made with kelp. </p>
+	They are all less-sodium and all seaweed and kelp from Wando, an eco-friendly seaweed farm introduced by NASA in the United States, has an emerald-colored clean sea that can be seen from space.
+
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	- Eat as snacks and also can eat with Japonica rice. <br>
+	- With Cheese sauce, mayonnaise or any kinds of dipping sauce.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>Gim: 1.23 oz per pouch<br>Curry: 1.23 oz per pouch<br> Kelp: 1.06 oz per pouch
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pouch</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>50 pouches </td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>30 boxes</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Bugak5.jpg" alt="Gim Bugak" width="200" />
+        <figcaption>Gim Bugak</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Bugak6.jpg" alt="Curry Gim Bugak" width="200" />
+        <figcaption>Curry Gim Bugak</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Bugak7.jpg" alt="Kelp Bugak" width="200" />
+        <figcaption>Kelp Bugak</figcaption>
+      </figure>
+      <figure>
+        <video src="images/Bugak3.mp4" alt="Serving Suggestion" controls height="300" muted>Vietnam Food Show</video>
+        <figcaption>Vietnam Food Show</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Yuja Kombucha with Bilberry 제품 페이지 -->
+<div class="container" id="Kombucha">
+  <div class="content">
+
+    <div class="product-title">Yuja Kombucha with Bilberry</div>
+
+    <div class="product-row">
+       <img src="images/Kombucha4.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	Yuja Kombucha with bilberry product is Kombucha powder that refreshing flavor!
+	Powdered kombucha is easy to store, and you can enjoy kombucha anytime, anywhere.
+	Kombucha with zero sugar, so you don't have to worry about sugar.
+	You can make your own Kombucha, if you want strong flavor add more powder.<br>
+	*Bilberry: A berry called the blueberry of Europe<br>
+	*Yuja: Yuzu in Korean
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	- Put it in warm or ice water as tea, sparkling water or to make cocktail.  <br>
+	- You can add it to your yogurt or dressing.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.17 oz per stick <br> 1.76 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>10 sticks per pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>24 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>88 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>28 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Kombucha1.jpg" alt="Package Front" width="200" />
+        <figcaption>Yuja Kombucha</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Kombucha3.jpg" alt="Package Back" width="180" />
+        <figcaption>Kombucha powder</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Kombucha5.jpg" alt="Serving Suggestion" width="180" />
+        <figcaption>Pop-up store</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Cocogurt 제품 페이지 -->
+<div class="container" id="Cocogurt">
+  <div class="content">
+
+    <div class="product-title">Cocogurt</div>
+
+    <div class="product-row">
+       <img src="images/cocogurt1.png" alt="crunch" width="250" >
+
+      <div class="product-description">
+	<p>Cocogurt is Coconut fermented creamy yogurt made by coconut cream 50%. It is rich taste of coconut and soft texture. It packed in a pouch that easy to eat and carry, also you can storage Cocogurt in pantry because it is long-term storage in room temperature. </p>
+	100 billion cells of GLP-1 Boosting Postbiotics<br>
+	Plant-based protein<br>
+	No sugar added <br>
+	No artificial colors <br>
+	No artificial flavors <br>
+	No preservatives <br>
+	No artificial sweeteners <br>
+	Gluten free <br>
+	Gelatin free
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+- Add it to your breakfast or combine it with fresh fruit. <br>
+- Spread it to bakery or salad meal alternative. <br>
+- Healthy snack that can control your diet. <br>
+- A great daily treat that won’t sabotage your diet. <br>
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>4.59 oz per pouch<br>45.85 oz per packet</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pouch <br> 10 pouches per packet </td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>4 packets</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>80 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/cocogurt3.png" alt="Package Front" width="300" />
+        <figcaption></figcaption>
+      </figure>
+      <figure>
+        <img src="images/cocogurt2.png" alt="Package Back" width="300" />
+        <figcaption></figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+<!-- Oat porridge powder 제품 페이지 -->
+<div class="container" id="oat">
+  <div class="content">
+
+    <div class="product-title">Oat Porridge Powder</div>
+
+    <div class="product-row">
+       <img src="images/OatPorridgePowder1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	Oat porridge powder with corn flakes that can be easily eaten like a cup of soup.<br>
+	Packaged in a stick form, it is easy to carry and control the amount. <br>
+	Healthy porridge with Gastrodia elata. <br>
+	* Gastrodia elata is a mycoheterotrophic perennial herb in the family Orchidaceae.  
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	1. Pour 1 stick into a cup. <br>
+	2. Pour 2.7-3.38 oz of warm water to taste. <br>
+	3. Stir with a spoon until the powder is well mixed and drink. <br>
+	- Add more sticks to more flavor or fully saticfied.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.70 per stick <br> 35.27 oz per packet</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>50 sticks per packets</td>
+          <td><strong>Shelf life</strong></td>
+          <td>24 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>8 packets</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>42 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' ></td>
+        </tr>
+      </table>
+    </div>
+
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+
+<!-- CleopatraSeaweed 제품 페이지 -->
+<div class="container" id="CleopatraSeaweed">
+  <div class="content">
+
+    <div class="product-title">Cleopatra Salt Seaweed</div>
+
+    <div class="product-row">
+       <img src="images/CleopatraSeaweed1.png" alt="crunch" width="320" >
+
+      <div class="product-description">
+        <p>Dried seaweeds, also known as Gim, are one of the traditional Korean cuisines.</p>
+        <p>This Cleopatra Salt Seaweed uses “Egyptian salt”, which is 100% natural rock pure salt, and raw seaweed from Wando – a region certified by NASA as a “Healthy Premium” area.</p>
+        <p>Individual packaging per serving makes it easy to store and carry. Seaweed has very high protein and iodine content, beneficial especially for children.</p>
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+        - Try to eat it with any food.<br>
+        - Eat as a snack.<br>
+        - Eaten with Japonica rice is the best!
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.14 oz per piece <br> 1.13 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>8 ea per pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>16 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>36 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/CleopatraSeaweed2.jpg" alt="Cleopatra Salt Seaweed" width="200"  />
+        <figcaption>Cleopatra Salt Seaweed</figcaption>
+      </figure>
+      <figure>
+        <img src="images/CleopatraSeaweed3.jpg" alt="Simple Gimbap" width="200"  />
+        <figcaption>Simple Gimbap</figcaption>
+      </figure>
+      <figure>
+       <video src="images/CleopatraSeaweed4.mp4" controls height="200" muted>Cleopatra Seaweed</video>
+        <figcaption>Taiwan Homeshopping</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Siktak 제품 페이지 -->
+<div class="container" id="Siktak">
+  <div class="content">
+
+    <div class="product-title">Siktak Seaweed</div>
+
+    <div class="product-row">
+       <img src="images/Siktak1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	Siktak seaweed is a product of wisdom accumulated over 200 years by the ancestors of this region, is produced using the stilt-type method (traditional farming) on the clean tidal flats of Wando-gun, and is a premium seaweed that is recognized by consumers first for its 	excellent taste and flavor due to its appropriate exposure to natural light.
+	<p>This seaweed come from a mild climate all year round and the warm ocean temperature due to the influence of the warm current flowing along the southern coast. </p>
+
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+        - Try to eat it with any food.<br>
+        - Eat as a snack.<br>
+        - Eating with Japonica rice is the best!
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.18 oz per ea </td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>3 ea per pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>18 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>40 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>32 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >FSC22000, ISO22000, K-Fish, USDA Organic Certification</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Siktak6.jpg" alt="Siktak Seaweed" width="230" />
+        <figcaption>Siktak Seaweed</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Siktak5.jpg" alt="Siktak Seaweed" width="230" />
+        <figcaption>Siktak Seaweed</figcaption>
+      </figure>
+      <figure>
+        <video src="images/Siktak2.mp4" alt="Serving Suggestion" controls height="300" muted>Thailand Food Show</video>
+        <figcaption>Thailand Food Show</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Pokpoong Tteokbokki 제품 페이지 -->
+<div class="container" id="Pokpoong">
+  <div class="content">
+
+    <div class="product-title">Pokpoong Tteokbokki</div>
+
+    <div class="product-row">
+       <img src="images/PokpoongTteokbokki1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	<p>Tteokbokki is Korean food made from tteok(rice cake), vegetables with sweet and spicy sauce. It is a snack and a meal to Korean and it is best friend of school girl for a long time. </p>
+	<p>Pokpoong Tteokbokki is cup-Tteokbokki which rice cake has holes in it, and when cooked, the rice cake puffs up and the Tteokbokki sauce soaks into the holes, allowing you to enjoy an upgraded flavor. Adding green onion and cabbage flakes in to sauce powder 	for an enhanced flavor! </p>
+	<p>Equipped with a special flake sauce powder developed through experience and know-how, defining the taste of Tteokbokki sauce preferred by all ages. </p>
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	1. Put the rice cake and sauce in a container. <br>
+	2. Pour hot water up to the mark and stir until the powder sauce dissolves.<br>
+	3. Close the lid and microwave for 3 minutes (based on 1000W). <br>
+	4. Mix well and enjoy.<br><br>
+	- Add cheese, sausage and/or cooked noodle as topping or eat with Gimbap, pizza or corn dogs gives you more various flavors. 
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>6.17 oz per cup
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A cup</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>24 cups</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>64 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >FDA, HCCP, FSSC 22000</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/PokpoongTteokbokki5.jpg" alt="Selling in Market, Korea" width="230" />
+        <figcaption>Selling in Market, Korea</figcaption>
+      </figure>
+      <figure>
+        <img src="images/PokpoongTteokbokki6.jpg" alt="Selling in Market, Japan" width="230" />
+        <figcaption>Selling in Market, Japan</figcaption>
+      </figure>
+      <figure>
+       <video src="images/PokpoongTteokbokki4.mp4" controls height="300" muted>How to cook</video>
+        <figcaption>How to cook</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Hot Spicy Shrimp Stir-Fried Noodles: Original, Carbonara, Cheese 제품 페이지 -->
+<div class="container" id="Shrimp">
+  <div class="content">
+
+    <div class="product-title">Hot Spicy Shrimp Stir-Fried Noodles: <br> Original, Carbonara, Cheese</div>
+
+    <div class="product-row">
+       <img src="images/noodle1.png" alt="crunch" width="350" >
+
+      <div class="product-description">
+	Do you like shrimp? Do you like spicy ramen? Here are hot spicy shrimp stir-fired ramen. 
+	      Spicy but flavory sauce gives satisfied and could be stress relieved. Special taste of South Korea Red-banded shrimp adds a rich flavor and addictive taste. 
+	      Cooked noodle is flavory and chewy, also uncooked noodle is crispy and delicious. 
+	      You can choose from three flavors: Original, Carbonara, and Cheese, to suit your taste
+    </div>
+</div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	1. Boil 500ml of water, add noodles and boil for 4 more minutes. <br>
+	2. Pour out water leaving 6 spoons of water left, add red sauce and powdered soup, and stir-fry over low heat for about 30 seconds. Enjoy!<br><br>
+	- Add extra cheese as topping or eat with pizza. Add some rice cake when you boil noodles. <br>
+	- You can eat uncooked noodle for snack with red sauce as dipping sauce.
+
+    </div>
+
+    <div class="product-details">
+      <h3>Details - Packet type</h3>
+    <table>
+        <tr>
+          <td><strong>Weight<br> (per Packet)</strong></td>
+          <td> Carbonara: 4.76 oz <br> Cheese: 4.76 oz <br>Original: 4.37 oz 
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A packet</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>32 packets</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>54 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >FDA</td>
+        </tr>
+      </table>
+      <h3>Details - Cup type</h3>
+    <table>
+        <tr>
+          <td><strong>Weight<br> (per Cup)</strong></td>
+          <td>Carbonara: 4.76 oz<br> Cheese: 4.76 oz<br>Original: 4.37 oz
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A cup</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>12 cups</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>96 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/noodle2.jpeg" alt="Package Front" width="180"/>
+        <figcaption>Carbonara packet</figcaption>
+      </figure>
+      <figure>
+        <img src="images/noodle3.jpeg" alt="Package Back" width="180"/>
+        <figcaption>Cheese packet</figcaption>
+      </figure>
+      <figure>
+        <img src="images/noodle4.jpeg" alt="Serving Suggestion" width="180"/>
+        <figcaption>Original packet</figcaption>
+      </figure>
+     <figure>
+        <img src="images/noodle5.png" alt="Package Front" width="180"/>
+        <figcaption>Carbonara cup</figcaption>
+      </figure>
+      <figure>
+        <img src="images/noodle6.png" alt="Package Back" width="180"/>
+        <figcaption>Cheese cup</figcaption>
+      </figure>
+      <figure>
+        <img src="images/noodle7.png" alt="Serving Suggestion" width="180"/>
+        <figcaption>Original cup</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Cleopatra salt 제품 페이지 -->
+<div class="container" id="Cleopatrasalt">
+  <div class="content">
+
+    <div class="product-title">Cleopatra salt</div>
+
+    <div class="product-row">
+       <img src="images/CleopatraSalt1.png" alt="crunch" width="240" >
+
+      <div class="product-description">
+	<p>Cleopatra salt is natural rock salt with 97% sodium without impurities. Transparent and clear crystal salt boasting the highest purity.</p>
+	No bittern salt, Cleopatra salt, is free from radioactivity, microplastics, and harmful heavy metals, also it does not have the bitter taste that can be found in sea salt. This is 100% crystal salt without any impurities, created by the power of nature over 250 million years in 	the Sahara Desert of Egypt. It is a salt that implements a salty taste with a richer and more consistent salinity with the same amount, with the highest level of purity of Nacl 97~99%.
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	- For all food use, including baking and barbecue.<br>
+	- It can be used as an exfoliator, massager, or bath additive. 
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>12.3 oz per pouch
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pouch</td>
+          <td><strong>Shelf life</strong></td>
+          <td>Unlimited</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>50 pouches</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>56 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' ></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/CleopatraSalt2.jpg" alt="Cleopatra salt" width="200" />
+        <figcaption>Cleopatra salt</figcaption>
+      </figure>
+      <figure>
+        <img src="images/CleopatraSalt4.png" alt="Cleopatra salt" width="300" />
+        <figcaption>Cleopatra salt</figcaption>
+      </figure>
+      <figure>
+        <img src="images/CleopatraSalt3.png" alt="Cleopatra salt rock" width="200" />
+        <figcaption>Cleopatra rock salt</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- KimchiSaladMix 제품 페이지 -->
+<div class="container" id="KimchiSaladMix">
+  <div class="content">
+
+    <div class="product-title">Kimchi Salad Mix</div>
+
+    <div class="product-row">
+       <img src="images/kimchisaladmix1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	<p>Traditionally, Koreans make Kimchi with napa cabbages, radishes, ponytail radishes, cucumbers, radish greens or etc. now they also make kimchi with basils, tomato, onions or cabbages. Any kind of vegetable can be Kimchi and you can make Kimchi with leftover 	vegetables in your refrigerator using Kimchi salad mix powder. </p>
+	This powder made only with natural ingredients, no chemical additives and using high-quality raw materials. You will taste traditional Korean Kimchi flavor. 
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	1. Slice all kind of vegetables into a bowl.<br>
+	2. Put salad vegetables like cabbage in a bowl and mix them with kimchi powder<br>
+	3. Delicious Korean Kimchi salad is done. <br>
+	- Use your hands to mix them. Your hands temperature will help to seasoning soaks in vegetables and gives more flavor. Don’t forget to wear food safe gloves, your hands will be on fire if you didn’t ware them.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.65 oz per packet
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A packet</td>
+          <td><strong>Shelf life</strong></td>
+          <td>24 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>600 packets</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>30 boxes</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC22000, US FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/kimchisaladmix2.jpg" alt="Kimchi Salad Mix" width="250" />
+        <figcaption>Kimchi Salad Mix</figcaption>
+      </figure>
+      <figure>
+        <img src="images/kimchisaladmix3.jpg" alt="Kimchi Salad Mix" width="250" />
+        <figcaption>Kimchi Salad Mix</figcaption>
+      </figure>
+      <figure>
+       <video src="images/kimchisaladmix4.mp4" controls width="230" height="" muted>Kimchi Salad Mix</video>
+        <figcaption>How to cook</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Red Bang 제품 페이지 -->
+<div class="container" id="RedBang">
+  <div class="content">
+
+    <div class="product-title">Red Bang</div>
+
+    <div class="product-row">
+       <img src="images/RedBang2.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	Here come 55,457 Scoville scale SPICY powder sauce from Korea. It made with Carolina Reaper which is 200 times spicier than Cheongyang chili which is a highly pungent Korean chili pepper, known for its intense spiciness. 
+	Natural ingredients, No capsaicin, No chemical additives! 
+	<p>Red bang will show you clean and strong spicy taste. </p>
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	- Sprinkle on dipping sauce, BBQ, hamburger, pizza or French fries. <br>
+	- Try to use Red Bang instead of Tabasco or sriracha.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>1.76 oz per bottle
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A bottle</td>
+          <td><strong>Shelf life</strong></td>
+          <td>24 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>108 bottles</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>30 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC22000, US FDA, VEGAN</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/RedBang1.png" alt="Package Front" height="300"/>
+        <figcaption>Red Bang</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+<!-- And Bap 제품 페이지 -->
+<div class="container" id="AndBap">
+  <div class="content">
+
+    <div class="product-title">Color Food And Rice: <br> Red, Yellow, Green, Black</div>
+
+    <div class="product-row">
+       <img src="images/andbap1.jpg" alt="crunch" width="300" >
+
+      <div class="product-description">
+        <strong>Red:</strong> Salmon, Shrimp, Beet, Carrot, Purple Sweet Potato, Tomato, Prickly Pear  <br>
+	<strong>Yellow:</strong> Quinoa, Sweet Pumpkin, Dried Pollack, Turmeric, Cheeze, Corn, Sweet Potato, Potato, Egg <br> 
+	<strong>Green:</strong> Spinach, Chlorella, Tofu, Green laver, Cabbage, Green tea, Mugwort, Green onion, Aloe <br> 
+	<strong>Black:</strong> Seaweed, Shiitake mushroom, Black sesame, Laver, Hijikia, Kelp, Glasswort, Green laver, Black rice  
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	- Sprinkle it over rice and mix well to create simple and tasty dishes like rice balls, fried rice, omurice, or tofu pockets.<br>
+	- Use it as a seasoning in cooking — perfect for egg dishes, tofu recipes, or noodle meals.<br>
+	- Add it to lunchboxes or kids’ meals to enhance flavor, texture, and color, making every lunch more vibrant and fun.
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>2.5 oz per pack <br> (8 servings)
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>50 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>64 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP / ISO22000 / FSSC22000 / FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/andbap4.jpg" alt="Package Front" width="180" />
+        <figcaption>Red</figcaption>
+      </figure>
+      <figure>
+        <img src="images/andbap5.jpg" alt="Package Back" width="180" />
+        <figcaption>Yellow</figcaption>
+      </figure>
+      <figure>
+        <img src="images/andbap7.jpg" alt="Serving Suggestion" width="180" />
+        <figcaption>Green</figcaption>
+      </figure>
+      <figure>
+        <img src="images/andbap6.jpg" alt="Serving Suggestion" width="180" />
+        <figcaption>Black</figcaption>
+      </figure>
+	<figure>
+        <img src="images/andbap3.jpg" alt="Serving Suggestion" width="180" />
+        <figcaption>Colorful Rice Ball</figcaption>
+      </figure>
+	<figure>
+        <img src="images/andbap8.jpg" alt="Serving Suggestion" width="180" />
+        <figcaption>Tofu-stuffed Inari</figcaption>
+      </figure>
+	<figure>
+        <img src="images/andbap9.jpg" alt="Serving Suggestion" width="180" />
+        <figcaption>Colorful Pancakes</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+<!-- Tok-Tok Misik 제품 페이지 -->
+<div class="container" id="TokTok">
+  <div class="content">
+
+    <div class="product-title">Tok-Tok Misik Seaweed Flakes</div>
+
+    <div class="product-row">
+       <img src="images/toktok1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+        <strong>Gochujang & Vegetable Bibimbap:</strong> Rich gochujang flavor with a mix of vegetables. Made with plant-based ingredients, suitable for a vegan-friendly diet.<br>
+	<strong>Cream & Tomato Curry:</strong> Deep flavor of creamy tomato curry <br>
+	<strong>Corn & Cheeze & Sweet Pumpkin:</strong> Savory corn and cheeze with sweet pumpkin and a crispy texture<br> 
+	<strong>Chicken & Butter & Onion:</strong> Sweet and salty flavor of chicken with honey butter seasoning<br> 
+	<strong>Crispy Pollack & Wasabi:</strong> Crispy pollack with spicy wasabi and mild mayo seasoning<br> 
+	<strong>Cheongyang Pepper & Green Onion & Anchovy:</strong>Spicy Cheongyang pepper and green onion with savory anchovy and seaweed<br> 
+    </div>
+ </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+      <p>
+	- Add it to rice or various dishes to enhance flavor and add a delicious texture.<br>
+	- Sprinkle it over rice and mix well to create simple and tasty dishes like rice balls, fried rice, omurice, or tofu pockets.<br>
+	- Use it as a seasoning or topping for a wide range of meals.<br>
+	- Great on salads, noodle dishes, grilled meats, and more — simply sprinkle and enjoy!
+      </p>
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>0.28 oz per stick <br> 2.8 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Ambient</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>48 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>56 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP / ISO22000 / FSSC22000 / FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/toktok2.jpg" alt="Red" width="180" />
+        <figcaption>Gochujang & Vegetable Bibimbap</figcaption>
+      </figure>
+      <figure>
+        <img src="images/toktok3.jpg" alt="Tomato" width="180" />
+        <figcaption>Cream & Tomato Curry</figcaption>
+      </figure>
+      <figure>
+        <img src="images/toktok4.jpg" alt="Yellow" width="180" />
+        <figcaption>Corn & Cheeze & Sweet Pumpkin</figcaption>
+      </figure>
+      <figure>
+        <img src="images/toktok5.jpg" alt="Orange" width="180" />
+        <figcaption>Chicken & Butter & Onion</figcaption>
+      </figure>
+	<figure>  
+	<img src="images/toktok10.jpg" alt="Orange" width="180" />
+        <figcaption>Crispy Pollack & Wasabi</figcaption>
+      </figure>
+      <figure>
+        <img src="images/toktok6.jpg" alt="Green" width="180" />
+        <figcaption>Cheongyang Pepper <br>& Green Onion & Anchovy</figcaption>
+      </figure>
+	<figure>
+        <img src="images/toktok7.jpg" alt="Green" width="180" />
+        <figcaption>with rice</figcaption>
+      </figure>
+	<figure>
+        <img src="images/toktok8.jpg" alt="Green" width="180" />
+        <figcaption>sprinkled on sandwich</figcaption>
+      </figure>
+	<figure>
+        <img src="images/toktok9.jpg" alt="Green" width="180" />
+        <figcaption>with rolled egg</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">Top</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+
+<!-- Mozzarella Corn Dog: Original, Cajun Potato제품 페이지 -->
+<div class="container" id="CornDog">
+  <div class="content">
+
+    <div class="product-title">Mozzarella Corn Dog: <br> Original, Cajun Potato</div>
+
+    <div class="product-row">
+       <img src="images/corndog1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+        Can you imagine a corn dog without sausage? Here they are; whole mozzarella corn dog and Cajun potato mozzarella corn dogs. 
+	<p>These Myung-Rang mozzarella corn dogs are filled with chewy mozzarella cheese on the inside instead of sausage. 
+	Cheese corn dog has crispy outside compared to regular corn dog. Cajun potato & cheese corn dog which 
+		covered Cajun seasoned potato cube gives you full of satisfaction and flavor. </p>
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+<u>Microwave </u><br>
+700W: 1 min 30 sec for 1 corndog <br>
+1000W: 1 min 10 sec for 1 corndog<br>
+<u>Microwave and Air fryer (highly recommend)</u><br>
+Microwave: 1 min 30 sec for 1 corndog (700W)<Br>
+Air fryer: 3 min 320 ℉ <br><br>
+- Covered with sugar and put ketchup. <br>
+- Put mustard, sweet chili, or dipping in tteokbokki sauce.<br>
+- Chop corn dog as bite size and put them in tteokbokki as topping. 
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>3.17 oz per stick <br> 12.69 oz per bag
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Frozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>4 sticks in a bag</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>16 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>24 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC 22000</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/corndog5.png" alt="Package Front" width="" />
+        <figcaption>Package Front</figcaption>
+      </figure>
+      <figure>
+        <img src="images/corndog6.png" alt="Package Back" width="" />
+        <figcaption>Package Back</figcaption>
+      </figure>
+      <figure>
+        <img src="images/corndog2.jpg" alt="Package Front" width="250" />
+        <figcaption>Package Front</figcaption>
+      </figure>
+      <figure>
+        <img src="images/corndog3.jpg" alt="Package Back" width="220" />
+        <figcaption>Package Back</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Shaped bun: Flower, Fish, Manju 제품 페이지 -->
+<div class="container" id="Shapedbun">
+  <div class="content">
+
+    <div class="product-title">Shaped bun: <br> Flower, Fish, Manju</div>
+
+    <div class="product-row">
+       <img src="images/Shaped1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+When air gets chilly, Koreans think shaped bun season is coming. 
+<p>Shaped bun is most famous and popular winter snack in Korea and only can eat during winter,
+but now we can eat anytime anywhere because of frozen shaped bun. This shaped bun has 3 shapes; flower, fish and corn (Manju) and 2 flavors; red bean pastes and cream. It is small bite size bun which is crispy outside, soft texture inside and sweet taste. It can be desserts or snacks. </p>
+
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+      <u>Air fryer</u> <br> 
+      356℉ for 10 minutes.<br>
+      - Eat with Ice cream, coffee or milk. 
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>10.58 oz per bag
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Frozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A bag</td>
+          <td><strong>Shelf life</strong></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td></td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td></td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Shaped4.png" alt="Fish shaped bun" width="200" />
+        <figcaption>Fish shaped bun <br>- red bean paste</figcaption>
+      </figure>
+	<figure>
+        <img src="images/Shaped5.png" alt="Fish shaped bun" width="200" />
+        <figcaption>Fish shaped bun <br>- cream</figcaption>
+      </figure>
+	<figure>
+        <img src="images/Shaped6.png" alt="Flower shaped bun" width="200" />
+        <figcaption>Flower shaped bun <br>- red bean paste</figcaption>
+      </figure>
+	<figure>
+        <img src="images/Shaped7.png" alt="Flower shaped bun" width="200" />
+        <figcaption>Flower shaped bun <br>- cream</figcaption>
+      </figure>
+	<figure>
+        <img src="images/Shaped8.png" alt="Manju" width="200" />
+        <figcaption>Manju <br>- cream</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Shaped4.jpg" alt="Manju" width="200" />
+        <figcaption>Manju</figcaption>
+      </figure>
+      <figure>
+        <video src="images/02_2.mp4" alt="Serving Suggestion" controls width="250" height="" muted>Fish shaped bun</video>
+        <figcaption>Fish shaped bun</figcaption>
+      </figure>
+      <figure>
+        <video src="images/05_2.mp4" alt="Serving Suggestion" controls width="250" height="" muted>Flower shaped bun</video>
+        <figcaption>Flower shaped bun</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- ChivePancake 제품 페이지 -->
+<div class="container" id="ChivePancake">
+  <div class="content">
+
+    <div class="product-title">Topokki & Chive Pancake</div>
+
+    <div class="product-row">
+       <img src="images/topokkiNchive1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+        Tteokbokki is a representative Korean food and a popular food in Korea. 
+	Tteokbokki goes well with any food, and the combination of spicy tteokbokki and savory chive pancake is a secret flavor combination 
+	that Koreans have kept hidden for a long time. <p>This menu will lead you to experience of new tastes.</p>
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	[Pancake]<br>
+	    <p><u>Microwave recipe</u><br>
+	    1. Tear one inch to vent.<br>
+	    2. Put in the microwave and heat without overlapping. <br>
+	    - About 3 mins (1,000W) <br>
+	    - About 3 mins and 30 seconds (700W)<br></p>
+	   <p><u>Air fryer recipe</u><br>
+	    1. Preheat the air fryer at 180-200℃ for about 3 minutes.<br>
+	    2. Remove the wrapper Put in the air fryer and cook withoutoverlapping. <br>
+	    - About 10-12 mins at 140℃<br></p>
+	    <p><u>Frying pan recipe</u>
+	    1. Heat a dry pan over medium-low heat, then cook for 5-7 mins.</p>
+	    <p>[Topokki]<br>
+	    <u>Pot recipe</u><br>
+	    1. Add 140ml of water to a pot and bring to a boil.<br>
+	    2. Once it boils, add 200g of wheat cake and 80g of sauce(40g*2ea). Boil over medium heat.<br>
+	    3. When the rice cakes swollen, reduce to low heat and cook for 1more mins. Stir well to prevent sticking.</p>
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>13.40 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Frozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>24 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>56 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC 22000, FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- K-Pancake: Kimchi, Potato 제품 페이지 -->
+<div class="container" id="KPancake">
+  <div class="content">
+
+    <div class="product-title">K-Pancake: <br> Kimchi, Potato</div>
+
+    <div class="product-row">
+       <img src="images/pancake1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+       <p> Jeon is one of Korean traditional food and it ranked in 1st food when Koreans mind on rainy day. 
+	      Jeon is also known as Buchimgae or Korean pancake and here are 2 flavors; Kimchi and potato.</p>
+Kimchi Jeon has Kimchi chunk inside and it gives crunch texture and spicy but tempting flavor.<br>
+Potato Jeon is Korean version of hash brown. It is mild flavor and good meal for vegetarian and for breakfast. 
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+      1. Frying pan: 4-5 min on medium heat.<br>
+       2. Microwave: 2 min 30 sec - 3 min<br><br>
+
+	<u>Recommended dipping sauce:</u><br>
+	For potato Jeon: soy sauce, ketchup, mayonnaise, Sriracha, sweet chili sauce, Tteokbokki sauce.<br>
+	For Kimchi Jeon: soy sauce, mayonnaise.<br>
+	Also recommend to put cheese on top of Jeon like pizza. <br>
+
+    </div>
+
+    <div class="product-details">
+      <h3>Details - Pancake</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>9.18 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Frozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>30 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>48 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC 22000, FDA</td>
+        </tr>
+      </table>
+<h3>Details - Mini pancake</h3>
+	<table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>8.82 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Frozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>12 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>30 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>42 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FSSC 22000, FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/pancake6.png" alt="Mini pancake" width="200" />
+        <figcaption>Pancake <br> - Kimchi</figcaption>
+      </figure>
+      <figure>
+        <img src="images/pancake7.png" alt="Mini pancake" width="200" />
+        <figcaption>Pancake <br> - potato</figcaption>
+      </figure>
+	<figure>
+        <img src="images/pancake4.png" alt="Mini pancake" width="200" />
+        <figcaption>Mini pancake <br> - Kimchi</figcaption>
+      </figure>
+      <figure>
+        <img src="images/pancake5.png" alt="Mini pancake" width="200" />
+        <figcaption>Mini pancake <br> - potato</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Porridge: Flounder, Spicy flounder, Abalone 제품 페이지 -->
+<div class="container" id="Porridge">
+  <div class="content">
+
+    <div class="product-title">Porridge: <br> Flounder, Spicy flounder, Abalone</div>
+
+    <div class="product-row">
+       <img src="images/Porridge1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+        Porridge uses only Korean ingredients including flounder and kelp from the clean sea of Wando, and it is produced in HACCP-certified manufacturing facilities. 
+	It is the only frozen convenience food made in Korea using Flounder from Wando, and has less nutrient destruction than retort food, 
+	and has excellent taste and texture. The kelp contained in the porridge is rich in alginic acid, 
+	which helps prevent various adult diseases and aging through antioxidant action. It is a high protein low fat and sugar healthy meal 
+	that can be enjoyed by anyone regardless of age especially, good meal for sick and dieter.
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+<u>In Boiling water</u>><br>
+1. Place the product pack itself in boiling water for over 10 minutes. Then, use tongs, etc. to take it out.><br>
+2. Open the pack along the perforated line and pour the contents into a bowl.><br>
+(A heated pack is extremely hot so be careful of burns.)><br>
+<u>In the microwave oven (700w/1 product)</u>><br>
+1. Put the contents into a microwaveable container.><br>
+2. Close the lid of the microwaveable container and cook for 6-7 minutes.><br>
+(When cooking in a microwave oven, be sure to check its wattage and cooking times.)><br>
+<u>On a stove top</u>><br>
+1. Open a pack of porridge and pour the contents into a pot containing 1-2 spoons of water. Stir well and start heating over medium heat.><br>
+2. Continue to stir well to prevent the content from sticking to the inside of the pot; once it begins to boil, reduce the fire to low heat and cook for about 3-4 minutes.><br>
+(The cooking time may vary slightly depending on the firepower.)<br><br>
+- Add tea spoon of sesame oil or some black pepper. Eat with seaweed. 
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>11.3 oz per pack
+	</td>
+          <td><strong>Storage</strong></td>
+          <td>Fozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A Pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>24 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>25 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>88 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >HACCP, FDA FR</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Porridge2.jpg" alt="Flounder porridge" width="200" />
+        <figcaption>Flounder porridge</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Porridge3.jpg" alt="Spicy flounder porridge" width="200" />
+        <figcaption>Spicy flounder porridge</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Porridge4.jpg" alt="Abalone porridge" width="200" />
+        <figcaption>Abalone porridge</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+
+<!-- Frozen Meal: Samll Kimbap 제품 페이지 -->
+<div class="container" id="Kimbap">
+  <div class="content">
+
+    <div class="product-title">Samll Kimbap: <br> Vegetable, Burdok, Tteokbokki</div>
+
+    <div class="product-row">
+       <img src="images/Gimbap1.png" alt="crunch" width="300" >
+
+      <div class="product-description">
+	Kimbap is one of famous Korean dish. It is a food made by rolling up dried seaweed with cooked rice, vegetables, or various ingredients. 
+	This Small Kimbap is smaller than regular Kimbap but full of flavor and serving size is perfect for lunch box. It has 3 flavors; Vegetable, Burdok and Kimbap & Tteokbokki.<br
+        <strong>Vegetable:</strong> Healthy flavor with vegetables. <br>
+        <strong>Burdok:</strong> Sweet and salty burdock gives savory. <br>
+        <strong>Kimbap & Tteokbokki:</strong> Kimbap is one of Tteokbokki's buddy and they are popular combination.  
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	<u>Microwave</u><br>
+	- After slightly peeling off the packaging film, cook in the microwave. <br>
+	    700W: 2min 30sec <br>
+	    1000W: 1min 30sec <br>
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight<br> (per pack)</strong></td>
+          <td>Vegetable: 8.47 oz<br>Burdock: 8.47 oz<br>Tteokbokki: 7.76 oz</td>
+          <td><strong>Storage</strong></td>
+          <td>Frozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>18 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>36 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>40 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Gimbap2.png" alt="Vegetable" width="200" />
+        <figcaption>Vegetable</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Gimbap3.png" alt="Burdok" width="200" />
+        <figcaption>Burdok</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Gimbap4.png" alt="Tteokbokki" width="200" />
+        <figcaption>Kimbap & Tteokbokki</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+<!-- Frozen Meal: Yubu sushi 제품 페이지 -->
+<div class="container" id="Yubu">
+  <div class="content">
+
+    <div class="product-title">Yubu sushi: <br> Burdok, Stir-fried kimchi, Tuna mayo</div>
+
+    <div class="product-row">
+       <img src="images/Yubu1.png" alt="Yubu" width="300" >
+
+      <div class="product-description">
+       Yubu sushi is a pouch of fried tofu filled with sushi rice, also called Inarizushi. Yubu sushi has 3 flavors; Tuna mayo, Burdock, Stir-fried.<br>
+	<strong>Tuna mayo: </strong>It made by mixing rich mayonnaise and tuna with rice and putting it in moist fried tofu. <br>
+	<strong>Burdock: </strong>Sweet and salty burdock and rice mixed together in moist fried tofu. <br>
+	<strong>Stir-fried: </strong>Deliciously spicy stir-fried kimchi and rice mixed together and placed in moist fried tofu.<br>
+      </div>
+    </div>
+
+    <div class="how-to-eat">
+      <h3>How to Eat</h3>
+	<u>Microwave</u><br>
+	- After slightly peeling off the packaging film, cook in the microwave. <br>
+	700W: 3min <br>
+	1000W: 2min
+    </div>
+
+    <div class="product-details">
+      <h3>Details</h3>
+    <table>
+        <tr>
+          <td><strong>Weight</strong></td>
+          <td>8.47 oz per pack</td>
+          <td><strong>Storage</strong></td>
+          <td>Frozen</td>
+        </tr>
+        <tr>
+          <td><strong>Selling unit</strong></td>
+          <td>A pack</td>
+          <td><strong>Shelf life</strong></td>
+          <td>18 months</td>
+        </tr>
+        <tr>
+          <td><strong>Units per Carton</strong></td>
+          <td>36 packs</td>
+          <td><strong>Cartons per Pallet</strong></td>
+          <td>40 cartons</td>
+        </tr>
+	<tr>
+          <td><strong>Origin</strong></td>
+          <td colspan='3' >Made in Korea <img src="images/flag.jpg" width="25" /></td>
+        </tr>
+        <tr>
+          <td><strong>Certificate</strong></td>
+          <td colspan='3' >FDA</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 추가 이미지 + 캡션 -->
+    <div class="extra-images">
+      <figure>
+        <img src="images/Yubu2.png" alt="Burdok" width="200" />
+        <figcaption>Burdok</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Yubu3.png" alt="Stir-fried kimchi" width="200" />
+        <figcaption>Stir-fried kimchi</figcaption>
+      </figure>
+      <figure>
+        <img src="images/Yubu4.png" alt="Tuna mayo" width="200" />
+        <figcaption>Tuna mayo</figcaption>
+      </figure>
+    </div>
+
+    <a href="#toc" class="back-to-toc" aria-label="Back to Table of Contents">List</a>
+    <div class="page-number">1</div>
+
+  </div>
+</div>
+
+<!-- 페이지 번호 자동 스크립트 -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll(".container");
+    let pageIndex = 1;
+    containers.forEach(container => {
+      const pageNumberEl = container.querySelector(".page-number");
+      // toc 페이지는 건너뜀
+      if (container.id !== "toc" && pageNumberEl) {
+        pageNumberEl.textContent = pageIndex++;
+      } else if (container.id === "toc" && pageNumberEl) {
+        pageNumberEl.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
